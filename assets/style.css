@@ -1,0 +1,191 @@
+/* nanoscrollbar */
+.nano .pane   { background: #888; }
+.nano .slider { background: #111; }
+
+body {
+    /* Override bootstrap properties */
+    background-color: #374a5d !important;
+    border: 0 !important;
+}
+
+#container{
+    margin: 0 auto;
+    width: 1060px;
+    min-height: 100%;
+    background-color: transparent;
+    border: 0;
+}
+
+#header{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.dashboard-list{
+    width: 250px;
+    float: left;
+    margin: 0 5px;
+    background-color: #e3e3e3;
+    min-height: 240px;
+    border-radius: 10px;
+    padding-bottom: 15px;
+}
+
+
+.right {
+    background-color: rgba(115, 111, 255, 0.2);
+
+}
+
+.right:hover {
+    background-color: rgba(115, 111, 255, 0.7);
+}
+
+.left {
+    background-color: rgba(255, 10, 24, 0.2);
+}
+
+.left:hover {
+    background-color: rgba(255, 10, 24, 0.7);
+}
+
+.middle {
+    background-color: rgba(102, 255, 109, 0.2);
+}
+
+.middle:hover {
+    background-color: rgba(102, 255, 109, 0.7);
+}
+
+
+.dashboard-list input, .dashboard-list textarea{
+    width: 240px;
+    margin: 1px 5px;
+}
+
+.dashboard-list select {
+    width: 240px;
+    margin: 1px 5px;
+}
+
+.dashboard-list input{
+    height: 30px;
+}
+
+.dash-currency{
+    border-radius: 5px;
+    background-color: #ffffff50;
+    width: 230px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.dashboard-list input[type="button"]{
+    width: 100px;
+    margin: 5px;
+
+}
+
+.dash-currency > .dash-priceLimit{
+    font-weight: bold;
+}
+
+.dash-currency > .dash-price{
+    font-size: x-large;
+    font-style: italic;
+    color: green;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.dash-currency > .dash-currencyInput{
+    font-size: smaller;
+    visibility: hidden;
+    position: absolute;
+}
+
+.dash-currency > .dash-dashCurrencyText{
+   font-weight: bold;
+    margin-top: 3px;
+}
+
+.status {
+    width: 10px;
+    height: 10px;
+    margin-left: 44%;
+    background-color: #e3e3e3;
+    border-radius: 5px;
+}
+
+h3{
+    text-align: center;
+}
+
+#delete-div{
+    display: none;
+    background-color: #fff;
+    border: 3px dotted #000;
+    margin: 10px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+}
+
+#noAlarm {display: none;}
+[for="noAlarm"] {
+    margin-left: 35%;
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #ddd linear-gradient(#ccc, #fff);
+    box-shadow:
+            inset 0 2px 1px rgba(0,0,0,.15),
+            0 2px 5px rgba(200,200,200,.1);
+    cursor: pointer;
+}
+[for="noAlarm"]:after {
+    content: "";
+    position: absolute;
+    left: 40%; top: 40%;
+    width: 20%;
+    height: 20%;
+    border-radius: 100%;
+    background: #969696 radial-gradient(40% 35%, #ccc, #969696 60%);
+    box-shadow:
+            inset 0 2px 4px 1px rgba(0,0,0,.3),
+            0 1px 0 rgba(255,255,255,1),
+            inset 0 1px 0 white;
+}
+[for="noAlarm"]:before {
+    content: "";
+    position: absolute;
+    top: 8%; right: 8%; bottom: 8%; left: 8%;
+    border-radius: 100%;
+    background: #eaeaea;
+    box-shadow:
+            0 3px 5px rgba(0,0,0,.25),
+            inset 0 1px 0 rgba(255,255,255,.3),
+            inset 0 -5px 5px rgba(100,100,100,.1),
+            inset 0 5px 5px rgba(255,255,255,.3);
+}
+#noAlarm:checked ~ [for="noAlarm"]:before {
+    background: #e5e5e5 linear-gradient(#dedede, #fdfdfd);
+}
+#noAlarm:checked ~ [for="noAlarm"]:after {
+    background: #25d025 radial-gradient(40% 35%, #5aef5a, #25d025 60%);
+    box-shadow:
+            inset 0 3px 5px 1px rgba(0,0,0,.1),
+            0 1px 0 rgba(255,255,255,.4),
+            0 0 10px 2px rgba(0, 210, 0, .5);
+}
+
+.noAlarmTitle {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 17%;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,125 @@
+<<html>
+<head>
+    <title>DashBoard</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="lib/Bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/jQuery/jquery.ui.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body class="well">
+<div id="container">
+
+    <div id="header"> Market DashBorad </div>
+
+    <div class="dashboard-list dashboard-container left" id="pending">
+        <h3>Горячие</h3>
+
+    </div>
+
+    <div class="dashboard-list dashboard-container middle" id="inProgress">
+        <h3>В процессе</h3>
+    </div>
+
+    <div class="dashboard-list dashboard-container right" id="completed">
+        <h3>Холодные</h3>
+    </div>
+
+    <div class="dashboard-list">
+        <h3>Добавить Валюту</h3>
+        <form id="dash-form">
+            <input type="text" placeholder="Лимит цены" />
+            <select name="currency" size="4" title="Валюта" required>
+                <option selected disabled>Выберите валютную пару</option>
+                <optgroup label="Bitcoin">
+                    <option value="btc_usd">BTC_USD</option>
+                    <option value="btc_eur">BTC_EURO</option>
+                    <option value="btc_rub">BTC_RUB</option>
+                    <option value="btc_uah">BTC_UAH</option>
+                    <option value="btc_pln">BTC_PLN</option>
+                </optgroup><optgroup label="Bitcoin Cash">
+                    <option value="bch_btc">BCH_BTC</option>
+                    <option value="bch_usd">BCH_USD</option>
+                    <option value="bch_rub">BCH_RUB</option>
+                    <option value="bch_eth">BCH_ETH</option>
+            </optgroup><optgroup label="DASH Coin">
+                    <option value="dash_btc">DASH_BTC</option>
+                    <option value="dash_usd">DASH_USD</option>
+                    <option value="dash_rub">DASH_RUB</option>
+            </optgroup><optgroup label="Ethereum">
+                    <option value="eth_btc">ETH_BTC</option>
+                    <option value="eth_ltc">ETH_LTC</option>
+                    <option value="eth_usd">ETH_USD</option>
+                    <option value="eth_eur">ETH_EUR</option>
+                    <option value="eth_rub">ETH_RUB</option>
+                    <option value="eth_uah">ETH_UAH</option>
+                    <option value="eth_pln">ETH_PLN</option>
+            </optgroup><optgroup label="Ethereum Classic">
+                     <option value="etc_btc">ETC_BTC</option>
+                    <option value="etc_usd">ETC_USD</option>
+                    <option value="etc_rub">ETC_RUB</option>
+            </optgroup><optgroup label="Litecoin">
+                    <option value="ltc_btc">LTC_BTC</option>
+                    <option value="ltc_usd">LTC_USD</option>
+                    <option value="ltc_eur">LTC_EUR</option>
+                    <option value="ltc_rub">LTC_RUB</option>
+            </optgroup><optgroup label="Zcash">
+                    <option value="zec_btc">ZEC_BTC</option>
+                    <option value="zec_usd">ZEC_USD</option>
+                    <option value="zec_eur">ZEC_EUR</option>
+                    <option value="zec_rub">ZEC_RUB</option>
+            </optgroup><optgroup label="Ripple">
+                    <option value="xrp_btc">XRP_BTC</option>
+                    <option value="xrp_usd">XRP_USD</option>
+                    <option value="xrp_rub">XRP_RUB</option>
+            </optgroup><optgroup label="Monero">
+                    <option value="xmr_btc">XMR_BTC</option>
+                    <option value="xmr_usd">XMR_USD</option>
+                    <option value="xmr_eur">XMR_EUR</option>
+            </optgroup><optgroup label="USD Tether">
+                    <option value="btc_usdt">BTC_USDT</option>
+                    <option value="eth_usdt">ETH_USDT</option>
+                    <option value="usdt_usd">USDT_USD</option>
+                    <option value="usdt_rub">USDT_RUB</option>
+            </optgroup><optgroup label="Waves coin">
+                    <option value="waves_btc">WAVES_BTC</option>
+                    <option value="waves_rub">WAVES_RUB</option>
+            </optgroup><optgroup label="KickCoin">
+                    <option value="kick_btc">KICK_BTC</option>
+                    <option value="kick_eth">KICK_ETH</option>
+            </optgroup><optgroup label="Разное">
+                    <option value="usd_rub">USD_RUB</option>
+                    <option value="doge_btc">DOGE_BTC</option>
+            </optgroup>
+            </select>
+            <input style="visibility: hidden" type="text" id="priceholder" placeholder="цена" />
+            <input type="button" style="margin-left: 25%" class="btn btn-primary" value="Добавить" onclick="dash.add();" />
+        </form>
+        <div class="noAlarmTitle">Вкл/Откл оповещение</div>
+        <input type="checkbox" id="noAlarm" title="Отключить оповещение" />
+        <label for="noAlarm"></label>
+        <input type="button" class="btn btn-primary" value="Очистить" onclick="dash.clear();" />
+        <input type="button" class="btn btn-primary" value="Запустить" onclick="start();" />
+        <input type="button" class="btn btn-primary" value="Остановить" onclick="stopUpdate();" />
+        <div class="status"></div>
+
+        <div id="delete-div">
+            Перетащите сюда для удаления
+        </div>
+    </div>
+
+    <div style="clear:both;"></div>
+    <script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/Bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/jQuery/jquery.ui.min.js"></script>
+    <script type="text/javascript" src="assets/coinsdashboard.js"></script>
+
+    <script type="text/javascript">
+        $(".currency-container").droppable();
+        $(".dash-currency").draggable({ revert: "valid", revertDuration:200 });
+        dash.init();
+    </script>
+
+</div>
+</body>
+</html>
