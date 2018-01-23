@@ -75,7 +75,8 @@ function getData() {
                     key = currencyCheck[l].innerHTML;
                     key = key.toUpperCase();
                     price = $(".dash-price:eq("+ l +")");
-                    price.html(inform[key].buy_price);
+                    // noinspection Annotator
+                      price.html(inform[key].buy_price);
                     currencyText = $(".dash-dashCurrencyText:eq("+ l + ")");
 
 
@@ -132,7 +133,9 @@ function checkWorkStatus(value, condition) {
 }
 
 function lowCheckLimit() {
-    if (inform[key].buy_price < Math.abs(+userLimitCheck.innerHTML) && soundOpt == false) {
+    // noinspection Annotator
+    if (inform[key].buy_price < Math.abs(+userLimitCheck.innerHTML) && soundOpt === false) {
+        // noinspection JSIgnoredPromiseFromCall
         audio.play();
         price.css("color","red");
     }
@@ -142,7 +145,9 @@ function lowCheckLimit() {
 }
 
 function highCheckLimit() {
-    if (inform[key].buy_price > +userLimitCheck.innerHTML && soundOpt == false) {
+    // noinspection Annotator
+    if (inform[key].buy_price > +userLimitCheck.innerHTML && soundOpt === false) {
+        // noinspection JSIgnoredPromiseFromCall
         audio.play();
         price.css("color","red");
     }
@@ -151,6 +156,7 @@ function highCheckLimit() {
     }
 }
 
+// noinspection JSUnusedAssignment
 var dash = dash || {},
     data = JSON.parse(localStorage.getItem("dashData"));
 
